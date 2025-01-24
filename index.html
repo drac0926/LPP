@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPP Solver with Graph</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <h1>LPP Solver with Graph</h1>
+        <form id="lpp-form"> 
+            <label for="numVariables">Number of Variables:</label>
+            <input type="number" id="numVariables" name="numVariables" placeholder="e.g., 2"> 
+            <br>
+
+            <div id="dynamic-inputs"></div>
+
+            <label for="numConstraints">Number of Constraints:</label>
+            <input type="number" id="numConstraints" name="numConstraints" placeholder="e.g., 3"> 
+            <br>
+
+            <div id="constraint-inputs"></div>
+
+            <button type="submit">Solve and Plot</button>
+            <button type="button" id="clearButton">Clear</button> 
+        </form> 
+        <div id="results" class="results" style="display:none;"></div>
+        <div id="graph-container">
+            <canvas id="lpp-graph"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script> 
+</body>
+</html>
