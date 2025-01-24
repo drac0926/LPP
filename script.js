@@ -85,7 +85,13 @@ const numVariablesInput = document.getElementById('numVariables');
                   rhs.push(parseFloat(document.querySelector(`input[name="constraint${i}RHS"]`).value));
                 }
             
-                plotGraph(objectiveFunction, constraints, rhs); 
+                plotGraph(objectiveFunction, constraints, rhs);
+                
+    //             // Clear input fields after plotting
+    //             document.querySelectorAll('input[type="number"]').forEach(input => input.value = ''); 
+    // ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); 
+    // resultsDiv.innerHTML = ''; 
+
               } catch (error) {
                 if (error instanceof TypeError) {
                   resultsDiv.innerHTML = '<p class="error">Invalid input. Please enter valid numbers for coefficients and RHS.</p>';
@@ -95,6 +101,13 @@ const numVariablesInput = document.getElementById('numVariables');
                 }
               }
             });
+
+            // Add event listener for the "Clear" button
+            document.getElementById('clearButton').addEventListener('click', () => {
+                document.querySelectorAll('input[type="number"]').forEach(input => input.value = ''); 
+                ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); 
+                resultsDiv.innerHTML = ''; 
+              });
             
  
         function calculateIntersection(coeff1, rhs1, coeff2, rhs2) {
